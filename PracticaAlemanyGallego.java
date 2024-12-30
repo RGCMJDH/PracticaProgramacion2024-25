@@ -13,8 +13,12 @@ public class PracticaAlemanyGallego {
     /**
      * @param args the command line arguments
      */
+   
     public static void main(String[] args) {
         // TODO code application logic here
+        Tablero prueba = new Tablero();
+        System.out.println(prueba.TaulerToString());
+             
     }
     
 }
