@@ -12,67 +12,72 @@ import java.util.Random;
  */
 public class Tablero {
 
-    private Cadena[][] Tablero;
+    private Cadena[][] Tablero, TableroJugador;
     FI fi;
     Cadena Archivo;
     Random ran;
     int tamlin = 0;
 
     public Tablero() {
+        this.fi = Fichero();
         this.Tablero = llegirTauler();
+        
     }
 
-    private Cadena[][] llegirTauler() {
+    private FI Fichero() {
         ran = new Random();
         int archivo = ran.nextInt(100);
         String nombreArchivo = "Tableros/" + archivo + ".txt";
         Archivo = new Cadena(nombreArchivo.toCharArray()); // Convertimos el String a charArray para usar Cadena
         fi = new FI(Archivo);
+        System.out.println(archivo);
+        return fi;
+
+    }
+    
+    private Cadena[][] llegirTauler() {
+
         fi.obrir(); // Archivo abierto con el nombre dado
+        Cadena linealeida = new Cadena();
+        linealeida = fi.llegirLinia();
+        tamlin = linealeida.getTam() + 1;
+        Cadena Tablero[][] = new Cadena[tamlin][tamlin];
 
-        Cadena linea = null;
-        linea = fi.llegirLinia();
-        char[] lineaCopiar;
-        lineaCopiar = linea.toString().toCharArray();
-        char letraASCII = 65;
+        for (int i = 0; i < tamlin; i++) {
+            for (int j = 0; j < tamlin; j++) {
+                Tablero[i][j] = new Cadena();
+            }
+        }
 
-        tamlin = lineaCopiar.length + 1;
-        Tablero = new Cadena[tamlin][tamlin];
-        char[] buit = new char[1];
-        buit[0] = '-';
-        Tablero[0][0] = new Cadena(' ');
         for (int i = 1; i < tamlin; i++) {
-
-            Tablero[0][i] = new Cadena((char) (i + 48));
-        }
-        for (int j = 1; j < tamlin - 1; j++) {
-            Tablero[j][0] = new Cadena(letraASCII);
-            letraASCII++;
-        }
-
-        for (int y = 1; y < tamlin - 1; y++) {
-            if (y > 1) {
-                linea = fi.llegirLinia();   // CAMBIAR
-            }
-            for (int x = 0; x < tamlin - 1; x++) {
-
-                Tablero[y][x] = new Cadena(lineaCopiar[x]);
+            Tablero[i][0].sustitueix((char) (i + 64));
+            for (int j = 1; j < tamlin; j++) {
+                Tablero[0][j].sustitueix((char) (j + 47));
             }
         }
-        fi.tancar();
+        Tablero[0][0].sustitueix(' ');
+
+        for (int i = 1; i < tamlin; i++) {
+            if (i > 1) {
+                linealeida = fi.llegirLinia();
+            }
+            for (int j = 1; j < tamlin; j++) {
+                Tablero[i][j].sustitueix(linealeida.getPal()[j - 1]);
+            }
+        }
+  
         return Tablero;
     }
 
-    public String TaulerToString() {
+    public String imprimirTablero() {
+        String res = " ";
 
-        String nuevo = "";
         for (int i = 0; i < tamlin; i++) {
-            nuevo += "\n";
+            res += "\n";
             for (int j = 0; j < tamlin; j++) {
-                nuevo += Tablero[i][j].getPal();
+                res += Tablero[i][j].getPrimer();
             }
         }
-        return nuevo;
+        return res;
     }
-
 }

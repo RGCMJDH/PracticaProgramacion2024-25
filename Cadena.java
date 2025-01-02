@@ -18,16 +18,17 @@ public class Cadena {
     public Cadena() {
         pal = new char[llarginicial];
         ind = 0;
-        pal[ind] = '-';
+        pal[ind] = ' ';
     }
+
     public Cadena(char c) {
         pal = new char[llarginicial];
         ind = 0;
         pal[ind] = c;
     }
 
-    public char getPal() {
-        return pal[0];
+    public char[] getPal() {
+        return pal;
     }
 
     public Cadena(char[] p) {
@@ -48,13 +49,15 @@ public class Cadena {
         }
         pal[ind++] = c;
     }
-    
+
+    public char getPrimer() {
+        return pal[0];
+    }
+
     public void sustitueix(char c) {
-         {
-            pal[ind] = c;
+        pal[0] = c;
     }
-         
-    }
+
     public void append(Cadena p) {
         for (int i = 0; i < p.ind; i++) {
             this.posar(p.pal[i]);
@@ -119,5 +122,5 @@ public class Cadena {
         }
         return res;
     }
- 
+
 }
