@@ -17,7 +17,7 @@ public class PracticaAlemanyGallego {
     public static void main(String[] args) {
         // TODO code application logic here
         Tablero prueba = new Tablero();
-        System.out.println(prueba.TaulerToString());
+        System.out.println(prueba.imprimirTablero());
              
     }
     
