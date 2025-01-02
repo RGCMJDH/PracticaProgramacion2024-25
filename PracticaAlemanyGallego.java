@@ -18,6 +18,9 @@ public class PracticaAlemanyGallego {
         // TODO code application logic here
         Tablero prueba = new Tablero();
         System.out.println(prueba.imprimirTablero());
+        
+        TableroJ jugador = new TableroJ();
+        System.out.println(jugador.imprimirTableroJ());
              
     }
     
