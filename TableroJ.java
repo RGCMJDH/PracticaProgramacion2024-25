@@ -55,4 +55,21 @@ public class TableroJ {
         }
         return res;
     }
+    
+     private Cadena[][] setTableroJ(Cadena TableroJugador[][]) {
+        LT tec = new LT();
+        
+        System.out.print("Dame una posicion X: ");
+        int posX = tec.llegirSencer();
+        System.out.print("Dame una posicion Y: ");
+        int posY = tec.llegirSencer();
+        
+        for (int i = 1; i < tamlin; i++) {
+            for (int j = 1; j < tamlin; j++) {
+                TableroJugador[posX][posY].sustitueix('X');
+            }
+        }
+        return TableroJugador;
+        
+    }
 }
