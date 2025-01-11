@@ -20,7 +20,7 @@ public class TableroJ {
     int tamlin = 11;
 
     private Cadena[][] creaTableroJ() {
-         Cadena TableroJ[][] = new Cadena[tamlin][tamlin];
+        Cadena TableroJ[][] = new Cadena[tamlin][tamlin];
         for (int i = 0; i < tamlin; i++) {
             for (int j = 0; j < tamlin; j++) {
                 TableroJ[i][j] = new Cadena();
@@ -33,6 +33,7 @@ public class TableroJ {
                 TableroJ[0][j].sustitueix((char) (j + 47));
             }
         }
+
         TableroJ[0][0].sustitueix(' ');
 
         for (int i = 1; i < tamlin; i++) {
@@ -40,7 +41,9 @@ public class TableroJ {
                 TableroJ[i][j].sustitueix('-');
             }
         }
-
+        
+        setTableroJ(TableroJ);
+        
         return TableroJ;
     }
 
@@ -55,12 +58,13 @@ public class TableroJ {
         }
         return res;
     }
-    
-     private Cadena[][] setTableroJ(Cadena TableroJugador[][]) {
+
+    private Cadena[][] setTableroJ(Cadena TableroJugador[][]) {
         LT tec = new LT();
         
         System.out.print("Dame una posicion X: ");
         int posX = tec.llegirSencer();
+        
         System.out.print("Dame una posicion Y: ");
         int posY = tec.llegirSencer();
         
@@ -72,4 +76,5 @@ public class TableroJ {
         return TableroJugador;
         
     }
+
 }
