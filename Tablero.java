@@ -3,15 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package practicaalemanygallego;
-
 import java.util.Random;
-
 /**
  *
  * @author cresp
  */
 public class Tablero {
 
+    private Cadena[][] Tablero, TableroJugador;
     private Cadena[][] Tablero;
     FI fi;
     Cadena Archivo;
@@ -24,6 +23,7 @@ public class Tablero {
         nombreTablero = "CPU";
         this.fi = Fichero();
         this.Tablero = llegirTauler();
+
         this.puntosTotal = ObtenerPuntuacion();
 
     }
@@ -45,6 +45,7 @@ public class Tablero {
         return fi;
 
     }
+
 
     private int ObtenerPuntuacion() {
         int puntos = 0;
@@ -69,13 +70,11 @@ public class Tablero {
         linealeida = fi.llegirLinia();
         tamlin = linealeida.getTam() + 1;
         Cadena Tablero[][] = new Cadena[tamlin][tamlin];
-
         for (int i = 0; i < tamlin; i++) {
             for (int j = 0; j < tamlin; j++) {
                 Tablero[i][j] = new Cadena();
             }
         }
-
         for (int i = 1; i < tamlin; i++) {
             Tablero[i][0].sustitueix((char) (i + 64));
             for (int j = 1; j < tamlin; j++) {
@@ -83,7 +82,6 @@ public class Tablero {
             }
         }
         Tablero[0][0].sustitueix(' ');
-
         for (int i = 1; i < tamlin; i++) {
             if (i > 1) {
                 linealeida = fi.llegirLinia();
@@ -92,6 +90,7 @@ public class Tablero {
                 Tablero[i][j].sustitueix(linealeida.getPal()[j - 1]);
             }
         }
+
 
         return Tablero;
     }
@@ -121,7 +120,6 @@ public class Tablero {
 
     public String imprimirTablero() {
         String res = " ";
-
         for (int i = 0; i < tamlin; i++) {
             res += "\n";
             for (int j = 0; j < tamlin; j++) {
