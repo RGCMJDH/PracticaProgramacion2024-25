@@ -1,5 +1,5 @@
-package enigma;
-
+package practicaalemanygallego;
+;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
