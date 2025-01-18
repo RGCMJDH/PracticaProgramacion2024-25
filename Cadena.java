@@ -15,6 +15,7 @@ public class Cadena {
     private char[] pal;
     private int ind;
 
+    //////////////////CONSTRUCTORES///////////////////////
     public Cadena() {
         pal = new char[llarginicial];
         ind = 0;
@@ -27,10 +28,6 @@ public class Cadena {
         pal[ind] = c;
     }
 
-    public char[] getPal() {
-        return pal;
-    }
-
     public Cadena(char[] p) {
         pal = new char[llarginicial];
         ind = 0;
@@ -39,14 +36,34 @@ public class Cadena {
         }
     }
 
-    public void posar(char c) {
+    //////////////////////////////////////////////////////
+    public char[] getPal() {
+        return pal;
+    }
+
+    public void ponerSeparador() {
         if (ind == pal.length) {
             char[] aux = new char[pal.length + 5];
+            for (int i = 0; i < pal.length; i++) {
+                aux[i + 1] = pal[i];
+            }
+            pal = aux;
+        }
+        pal[0] = '#';
+        ind++;
+        pal[ind++] = '#';
+        //System.out.println("ind: " + ind);
+    }
+
+    public void posar(char c) {
+        if (ind == pal.length) {
+            char[] aux = new char[pal.length + 1];
             for (int i = 0; i < pal.length; i++) {
                 aux[i] = pal[i];
             }
             pal = aux;
         }
+
         pal[ind++] = c;
     }
 

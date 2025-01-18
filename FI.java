@@ -53,6 +53,7 @@ public class FI {
         return cad;
     }
 
+    
     public void tancar() {
         try {
             reader.close();

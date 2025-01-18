@@ -11,7 +11,7 @@ import java.util.Random;
 public class Tablero {
 
     private Cadena[][] Tablero, TableroJugador;
-    private Cadena[][] Tablero;
+    //private Cadena[][] Tablero;
     FI fi;
     Cadena Archivo;
     Random ran;
@@ -35,7 +35,7 @@ public class Tablero {
 
     }
 
-    private FI Fichero() {
+    private FI Fichero() {//consigue el nombre txt del archivo con
         ran = new Random();
         int archivo = ran.nextInt(100);
         String nombreArchivo = "Tableros/" + archivo + ".txt";
