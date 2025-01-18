@@ -14,13 +14,14 @@ public class PracticaAlemanyGallego {
 
     public static void main(String[] args) {
         // TODO code application logic here
-        Tablero prueba = new Tablero();
+        Tablero prueba = new Tablero(); 
         Registro reg = new Registro();
-        Cadena cabecera = new Cadena("---------------PARTIDA---------------".toCharArray());
-        Cadena espacio = new Cadena("--------------------------------------".toCharArray());
         Date fecha = new Date();
         
         //Para hacer bonito el registro
+        final Cadena cabecera = new Cadena("---------------PARTIDA---------------".toCharArray());
+        final Cadena espacio = new Cadena("--------------------------------------".toCharArray());  
+        //final Cadena separador = new Cadena("#".toCharArray());
             //Nombre para el registro
         Cadena nombR = new Cadena("Nombre: ".toCharArray());
             //Fecha para el registro
@@ -30,6 +31,7 @@ public class PracticaAlemanyGallego {
         Cadena fech = new Cadena(fecha.toString().toCharArray());
         reg.guardarC(cabecera);
         reg.guardarC(fechR);
+        fech.ponerSeparador();
         reg.guardarC(fech);
         
         System.out.println(prueba.imprimirTablero());
@@ -42,6 +44,9 @@ public class PracticaAlemanyGallego {
         //System.out.println(util.toString(nombre));//imprime el nombre 
         Cadena nomb = new Cadena(nombre);
         reg.guardarC(nombR);
+        
+        //nomb.posarInicio('#');
+        nomb.ponerSeparador();
         reg.guardarC(nomb);
         reg.guardarC(espacio);
         
